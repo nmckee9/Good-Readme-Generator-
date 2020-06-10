@@ -14,22 +14,22 @@ inquirer.prompt([
       type: "input"
     },
     {
-      message: "Describe Your Project",
+      message: "Please Describe Your Project",
       name: "description",
       type: "input",
     },
     {
-      message: "Installation Info",
+      message: "Installation Info | What are the steps required to install your project?",
       name: "installation",
       type: "input",
     },
     {
-      message: "Usage Info",
+      message: "Usage Info | Provide instructions and examples for use",
       name: "usage",
       type: "input",
     },
     {
-      message: "Credits",
+      message: "Credits | List the collaborators on your project",
       name: "credits",
       type: "input",
     },
@@ -39,7 +39,7 @@ inquirer.prompt([
       type: "input",
     },
     {
-      message: "Any Other Contributors",
+      message: "Contributors",
       name: "contributors",
       type: "input",
     },
@@ -67,27 +67,31 @@ inquirer.prompt([
 function generateMD(readme) {
     return `# ${readme.projectTitle} \n
 # Description \n
-    ${readme.description} \n
+${readme.description} \n
 # Table of Contents \n
     * [Installation](#installation) \n
     * [Usage](#usage) \n
     * [Credits](#credits) \n
     * [License](#license) \n
+    * [Contributors](#contributors) \n
+    * [Tests](#tests) \n
+    * [Github User Information](#userinformation) \n 
 # Installation \n
-    ${readme.installation} \n
+${readme.installation} \n
 # Usage \n
-    ${readme.usage} \n
+${readme.usage} \n
 # Credits \n
-    ${readme.credits} \n
+${readme.credits} \n
 # License \n
-    ${readme.license} \n
+${readme.license} If you need help choosing a license, use [https://choosealicense.com/]\n
 # Contributors \n
-    ${readme.contributors} \n
+${readme.contributors} \n
 # Tests \n
-    ${readme.tests} \n
+${readme.tests} \n
 # GitHub User \n
-    ${readme.data.avatar_url}
-    ${readme.data.avatar_email}
+![profile pic](${readme.data.avatar_url})
+${readme.data.avatar_email}
+
 `
 };
 
